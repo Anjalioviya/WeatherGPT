@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WeatherGPT current weather, multilingual search and voice assistant">
+<title>WeatherGPT — Weather made simple</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#"><span class="brand-icon">☀</span> WeatherGPT</a>
+<div class="top-actions"><label for="languageSelect" data-i18n="language">Language</label>
+<select id="languageSelect" aria-label="Choose language"><option value="en">English</option><option value="ta">தமிழ்</option><option value="hi">हिन्दी</option></select></div></header>
+<main class="container">
+<section class="hero"><p class="eyebrow" data-i18n="eyebrow">YOUR EVERYDAY WEATHER ASSISTANT</p>
+<h1 data-i18n="heading">What’s the weather like?</h1><p class="subheading" data-i18n="subheading">Search a city, college, landmark, or nearby place.</p>
+<form id="searchForm" class="searchbar"><span class="search-icon">⌕</span><input id="locationInput" type="search" autocomplete="off" placeholder="Try Chennai or Saveetha University" required aria-label="Search location">
+<button id="voiceButton" class="voice-button" type="button" title="Search by voice" aria-label="Search by voice">🎙</button><button id="searchButton" class="primary-button" type="submit" data-i18n="search">Search</button></form>
+<p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+<div class="popular"><strong data-i18n="popular">Popular places</strong><div class="chips">
+<button class="chip" type="button" data-place="Saveetha University, Chennai, India">Saveetha University</button><button class="chip" type="button" data-place="Chennai, India">Chennai</button><button class="chip" type="button" data-place="Bengaluru, India">Bengaluru</button><button class="chip" type="button" data-place="Madurai, India">Madurai</button><button class="chip" type="button" data-place="New Delhi, India">New Delhi</button></div>
+<p class="small-note" data-i18n="popularNote">Place results depend on geocoding coverage.</p></div></section>
+<section id="weatherSection" class="weather-card hidden" aria-live="polite"><div class="weather-main"><div><p class="card-kicker" data-i18n="currentWeather">CURRENT WEATHER</p><h2 id="placeName">—</h2><p id="placeMeta" class="muted">—</p></div><div id="weatherEmoji" class="weather-emoji">🌤️</div></div>
+<div class="temperature-row"><div class="temperature"><span id="temperature">--</span><span class="degree">°C</span></div><div><p id="weatherDescription" class="condition">—</p><p class="muted"><span data-i18n="feelsLike">Feels like</span> <strong id="feelsLike">--°C</strong></p></div></div>
+<div class="weather-stats"><div class="stat"><span class="stat-icon">💧</span><span class="stat-label" data-i18n="humidity">Humidity</span><strong id="humidity">--%</strong></div><div class="stat"><span class="stat-icon">💨</span><span class="stat-label" data-i18n="wind">Wind speed</span><strong id="windSpeed">-- km/h</strong></div><div class="stat"><span class="stat-icon">🌡️</span><span class="stat-label" data-i18n="apparent">Feels like</span><strong id="apparentTemp">--°C</strong></div></div>
+<div class="weather-footer"><span id="updatedAt" class="muted"></span><button id="speakWeatherButton" class="secondary-button" type="button">🔊 <span data-i18n="readWeather">Read weather aloud</span></button></div></section>
+<section class="chat-card"><div class="section-heading"><div><p class="card-kicker" data-i18n="assistantLabel">WEATHERGPT ASSISTANT</p><h2 data-i18n="chatTitle">Ask about the weather</h2></div><span class="bot-icon">✦</span></div>
+<p class="muted" data-i18n="chatHint">Load a location first. This simple chatbot answers predefined questions using the weather data above.</p>
+<div class="suggested-questions"><button class="question-chip" type="button" data-question="temperature" data-i18n="qTemp">What is the temperature?</button><button class="question-chip" type="button" data-question="wind" data-i18n="qWind">Is it windy?</button><button class="question-chip" type="button" data-question="humidity" data-i18n="qHumidity">What is the humidity?</button><button class="question-chip" type="button" data-question="condition" data-i18n="qCondition">Describe the weather</button>
+<button class="question-chip" type="button" data-question="rainToday" data-i18n="qRain">Will it rain today?</button>
+<button class="question-chip" type="button" data-question="tomorrow" data-i18n="qTomorrow">What about tomorrow?</button>
+<button class="question-chip" type="button" data-question="highLow" data-i18n="qHighLow">Daily high and low?</button>
+<button class="question-chip" type="button" data-question="umbrella" data-i18n="qUmbrella">Should I carry an umbrella?</button>
+<button class="question-chip" type="button" data-question="uv" data-i18n="qUV">What is the UV index?</button>
+<button class="question-chip" type="button" data-question="sunset" data-i18n="qSunset">When is sunset?</button></div>
+<form id="chatForm" class="chat-input-row"><input id="chatInput" type="text" placeholder="Ask a weather question…" data-i18n-placeholder="chatPlaceholder" aria-label="Ask a weather question"><button class="primary-button" type="submit" data-i18n="send">Send</button></form>
+<div id="chatResponse" class="chat-response" role="status" aria-live="polite" data-i18n="chatWelcome">Hi! Search for a location to get started.</div></section>
+<footer class="footer"><p data-i18n="footer">Weather data provided by Open-Meteo. No account or API key required.</p><p class="tiny">Voice support varies by browser. Institution and landmark results depend on geocoding coverage.</p></footer>
+</main><script src="script.js"></script></body></html>
